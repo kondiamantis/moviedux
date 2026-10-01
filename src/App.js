@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
         
@@ -16,6 +17,12 @@ function App() {
     .then(response => response.json())
     .then(data => setMovies(data));
 }, []);
+
+const toggleWatchlist = (movieId) => {
+  setWatchlist(prev => 
+    prev.includes(movieId) ? prev.filter(id => id !== movieId) : [...prev, movieId]
+  )
+}
 
 
   return (
