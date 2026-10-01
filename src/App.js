@@ -27,8 +27,8 @@ const toggleWatchlist = (movieId) => {
 
   return (
     <div className="App">
-      <div className='container'>
-        <Header/>
+      <div className="container">
+        <Header />
         <Router>
           <nav>
             <ul>
@@ -42,12 +42,30 @@ const toggleWatchlist = (movieId) => {
           </nav>
 
           <Routes>
-            <Route path="/" element={<MoviesGrid movies={movies}/>}></Route>
-            <Route path="/watchlist" element={<Watchlist/>}></Route>
+            <Route
+              path="/"
+              element={
+                <MoviesGrid
+                  movies={movies}
+                  watchlist={watchlist}
+                  toggleWatchlist={toggleWatchlist}
+                />
+              }
+            ></Route>
+            <Route
+              path="/watchlist"
+              element={
+                <Watchlist
+                  movies={movies}
+                  watchlist={watchlist}
+                  toggleWatchlist={toggleWatchlist}
+                />
+              }
+            ></Route>
           </Routes>
         </Router>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
